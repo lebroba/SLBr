@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Single Leg Bearing Range</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m9">
+          
+			
+          <div class="card black hilite-border">
+			  <div class="card-content white-text">
+			                <span class="card-title">User Inputs</span>
+            <form>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" name="oCRS" id="oCRS" step="1" pattern="[0-9]*" min="0" max="360" class="validate" aria-label="..." tabindex="1" required>
+          <label for="oCRS">Own Ship Course</label>
+        </div>
+		  
+        <div class="input-field col s6">
+		<input type="number" name="oSPD" id="oSPD" step="1" pattern="[0-9]*" min="0" max="60" class="validate" aria-label="..." tabindex="2" required>
+          <label for="oSPD">Own Ship Speed</label>
+        </div>
+      </div>
+
+		      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" name="lOS" id="lOS" step="1" pattern="[0-9]*" min="0" max="360" class="validate" aria-label="..." tabindex="3" required>
+          <label for="los">Line of Sound</label>
+
+        </div>
+              <div class="input-field col s6">
+          <input type="number" name="bRate" id="bRate" step=".1" pattern="[0-9]*" min="0" max="60" class="validate" aria-label="..." tabindex="4" required>
+          <label for="bRate">Bearing Rate</label>
+
+        </div>
+      </div>
+				
+			      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" name="tSPD" id="tSPD" step="1" pattern="[0-9]*" min="0" max="60" class="validate" aria-label="..." tabindex="5" required>
+          <label for="tSPD">Target Speed</label>
+
+        </div>
+              
+          <div class="input-field col s6">
+			<input type="number" name="tCRS" id="tCRS" step="1" pattern="[0-9]*" min="0" max="360" class="validate" aria-label="..." tabindex="6" required>
+            
+          <label for="tCRS">Target Course</label>
+
+        </div>
+      </div>	
+
+
+
+    </form>
+			  </div>
+          </div>
+        
+		  <!-- Eval Plot -->
+			<div class="card black hilite-border">
+				<div class="card-content white-text" name="holder" id="holder">
+				              <span class="card-title">Eval Plot</span>
+					 <svg id="evalsvg"></svg>
+				</div>
+			</div>
+		  </div>
+
+        <div class="col s12 m6">
+                   <div class="card black hilite-border" id="mobo">
+			 <svg id="mobosvg"></svg>
+          
+			 <!--Speed Component Read outs -->
+			 <!-- Own Ship -->
+			 <div class="top-left">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><span class="blue-text">SoA</span> &nbsp;</td>
+        <td><span class="RO" id="soaRO">0 kts</span></td>
+      </tr>
+      <tr>
+        <td><span class="blue-text">SoI</span> &nbsp;</td>
+        <td><span class="RO" id="soiRO">0 kts</span></td>
+      </tr>
+    </tbody>
+  </table>
+         </div>
+			 <!-- Target -->
+			  <div class="top-right">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><span class="RO" id="staRO">0 kts</span></td>
+        <td>&nbsp;<span class="red-text">StA</span></td>
+        </tr>
+      <tr>
+        <td><span class="RO" id="stiRO">0 kts</span></td>
+        <td>&nbsp;<span class="red-text">StI</span></td>
+        </tr>
+    </tbody>
+  </table>  
+            </div>
+			 
+		<!-- Relative -->
+			  <div class="bottom-left">
+  <table class="table">
+    <tbody>
+      <tr>
+		<td>&nbsp;<span class="green-text">SrA</span></td>  
+        <td><span class="RO" id="SRA">0 kts</span></td>
+        </tr>
+      <tr>
+		<td>&nbsp;<span class="green-text">SrI</span></td>  
+        <td><span class="RO" id="SRI">0 kts</span></td>
+        </tr>
+    </tbody>
+  </table>  
+            </div>
+			 
+			 <!-- LOS Geometry -->
+			  <div class="bottom-right">
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><span class="RO right" id="closure">OPENING</span></td>
+        </tr>
+      <tr>
+        <td><span class="RO right readout" id="losGeo">OVERLEAD</span></td>
+        </tr>
+    </tbody>
+  </table>  
+            </div>
+			
+			
+			</div>    
+					  		  
+		          <div class="card black">
+					  <a class="square waves-effect waves-dark btn">
+			<i class="large material-icons icon" style="font-size: 60px;">settings</i>
+			</a>
+
+			<!-- <a class="square waves-effect waves-dark btn">
+				<i class="material-icons icon" style="font-size: 60px;">playlist_add</i><br />
+			</a> -->
+			<a class="square waves-effect waves-dark btn">
+				<i class="material-icons icon" style="font-size: 60px;">list</i><br />
+			</a>
+			
+			<div class="square btn" id"sraGage">
+
+			</div>
+					  
+			<div class="square btn">
+
+			</div>		  
+				
+			<div class="square btn">
+
+			</div>		  
+					  
+			<div class="square btn right">
+			  <!-- Switch -->
+  <div class="switch">
+    <label>
+      <!-- <span class="left  white-text">&nbsp; 2:1</span><span class="center">|</span> <span class="right  white-text">5:1 &nbsp;</span> -->
+		<h5><span class="white-text" id="twoOnex`">2:1</span> | <span id="fiveOne">5:1</span></h5>
+      <input type="checkbox" id="ratio">
+      <span class="lever"></span>
+     
+    </label>
+  </div>
+			</div>
+			
+			
+			<a class="square waves-effect waves-dark btn right" onClick="toggleFullScreen();">
+				<i class="material-icons icon" style="font-size: 60px;">aspect_ratio</i>
+			</a>
+					  
+					  
+			
+                     </div>	
+			
+		  </div>
+
+        <div class="col s12 m3">
+			
+			          <div class="card black hilite-border">
+            <div class="card-content white-text">
+              <span class="card-title">SLB Range</span>
+              <span id="slbRange" class="readout2">00000</span><span class="sm"> Yards</span>
+            </div>
+                      </div>
+			
+						<div class="card black hilite-border">
+            <div class="card-content white-text">
+             <table>
+				<tr>
+                <td>
+                  <span class="readout">00000</span></td>
+                <td>
+                  <span class="readout">00000</span></td>
+              </tr>
+              <tr>
+                <td><span class="sm">Minimum Range</span></td>
+                <td><span class="sm">Maximum Range</span></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <span class="readout">0000</span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><span class="sm">Estimated Range</span></td>
+              </tr>
+				</table>
+            </div>
+
+          </div>
+			
+			<div class="card black hilite-border">
+            <div class="card-content white-text">
+             <table>
+				<tr>
+                <td>
+                  <span class="readout" id="relBRG">000&deg;</span></td>
+                <td>
+                  <span class="readout" id="repBRG">000&deg;</span></td>
+              </tr>
+              <tr>
+                <td><span class="sm">Relative Bearing</span></td>
+                <td><span class="sm">Reciprocal Bearing</span></td>
+              </tr>
+              <tr>
+                <td  colspan="2">
+                  <span  class="readout" id="relativePosition">Port Quarter</span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><span class="sm">Relative Position</span></td>
+              </tr>
+				</table>
+            </div>
+
+          </div>
+			
+							<div class="card black hilite-border">
+            <div class="card-content white-text">
+                           <table>
+				<tr>
+                <td>
+                  <span class="readout" id="tmrPrint">0</span> <span class="sm"> yds</span></td>
+                <td>
+                  <span class="readout" id="omrPrint">0</span> <span class="sm"> yds/min</span></td>
+              </tr>
+              <tr>
+                <td><span class="sm">Three minute rule</span></td>
+                <td><span class="sm">One minute rule</span></td>
+              </tr>
+              <tr>
+                <td  colspan="2">
+                  <span  class="readout" id="stabPrint">0</span><span class="sm"> minutes</span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><span class="sm">Towed array stabilization time</span></td>
+              </tr>
+				</table>
+            </div>
+          </div>
+			
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+
+  <!--  Scripts-->
+  <script src="js/jquery.js"></script>
+  <script src="js/materialize.js"></script>
+	<script src="js/snap.svg.js"></script>
+	<script src="js/slbr.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

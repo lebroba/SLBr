@@ -1,0 +1,70 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3147830, 2016-01-03T10:40:01-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Bender-Light by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/light/
+ * 
+ * Webfont: Bender-Bold by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/bold/
+ * 
+ * Webfont: Bender by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/regular/
+ * 
+ * Webfont: Bender-Black by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/black/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3147830
+ * Licensed pageviews: 10,000
+ * Webfonts copyright: Copyright (c) 2009 by Oleg Zhuravlev, Gladkikh Ivan. All rights reserved.
+ * 
+ * © 2016 MyFonts Inc
+*/
+
+
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/300836");
+
+  
+@font-face {font-family: 'Bender-Light';
+    src: url('../webfonts/300836_0_0.eot');
+    src: url('../webfonts/300836_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/300836_0_0.woff2') format('woff2'),url('../webfonts/300836_0_0.woff') format('woff'),url('../webfonts/300836_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Bender-Bold';src: url('../webfonts/300836_1_0.eot');src: url('../webfonts/300836_1_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/300836_1_0.woff2') format('woff2'),url('../webfonts/300836_1_0.woff') format('woff'),url('../webfonts/300836_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Bender';src: url('../webfonts/300836_2_0.eot');src: url('../webfonts/300836_2_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/300836_2_0.woff2') format('woff2'),url('../webfonts/300836_2_0.woff') format('woff'),url('../webfonts/300836_2_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Bender-Black';src: url('../webfonts/300836_3_0.eot');src: url('../webfonts/300836_3_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/300836_3_0.woff2') format('woff2'),url('../webfonts/300836_3_0.woff') format('woff'),url('../webfonts/300836_3_0.ttf') format('truetype');}
+ 
+.Bender-Light { 
+	font-family: Bender-Light;
+	font-weight: normal;
+	font-style: normal;
+}
+.Bender-Bold { 
+	font-family: Bender-Bold;
+	font-weight: normal;
+	font-style: normal;
+}
+.Bender { 
+	font-family: Bender;
+	font-weight: normal;
+	font-style: normal;
+}
+.Bender-Black { 
+	font-family: Bender-Black;
+	font-weight: normal;
+	font-style: normal;
+}

@@ -1,310 +1,824 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>SLBr</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Web Based SONAR Tactical Decision Aid">
+    <meta name="author" content="Ben Lebron">
+    <link rel="icon" href="favicon.ico">
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="https://fonts.googleapis.com/css?family=Geo|Orbitron|Rationale|Sarpanch" rel="stylesheet">
-</head>
-<body>
- 
-	<div class="container">
-    
+    <title>SLBr</title>
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m3">
-        <!-- Inputs Card -->
-			<div class="col s12 m12">
-          <div class="card black hilite-border">
-            <div class="card-content white-text">
-              <span class="card-title">User Inputs</span>
-              
- <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="number" name="oCRS" id="oCRS" step="1" pattern="[0-9]*" min="0" max="360" class="validate" aria-label="..." tabindex="1" required>
-          <label for="oCRS">Own Ship Course</label>
-        </div>
-        <div class="input-field col s6">
-		<input type="number" name="oSPD" id="oSPD" step="1" pattern="[0-9]*" min="0" max="60" class="validate" aria-label="..." tabindex="2" required>
-          <label for="oSPD">Own Ship Speed</label>
-        </div>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--
+/**
+ * @license
+ * MyFonts Webfont Build ID 3147826, 2016-01-03T10:01:11-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Bender-Light by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/light/
+ * 
+ * Webfont: Bender-Bold by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/bold/
+ * 
+ * Webfont: Bender by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/regular/
+ * 
+ * Webfont: Bender-Black by Jovanny Lemonad
+ * URL: http://www.myfonts.com/fonts/jovanny-lemonad/bender/black/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3147826
+ * Licensed pageviews: 10,000
+ * Webfonts copyright: Copyright (c) 2009 by Oleg Zhuravlev, Gladkikh Ivan. All rights
+ * reserved.
+ * 
+ * © 2016 MyFonts Inc
+*/
+
+-->
+<link rel="stylesheet" type="text/css" href="css/MyFontsWebfontsKit.css">  
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/slbr.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container-fluid nopad">
+        <div class="row"> <a class="logo" id="logo" href="#" tabindex="-2">SL&beta;<span>r</span></a> </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="number" name="lOS" id="lOS" step="1" pattern="[0-9]*" min="0" max="360" class="validate" aria-label="..." tabindex="3" required>
-          <label for="los">Line of Sound</label>
-
-        </div>
-              <div class="input-field col s6">
-          <input type="number" name="bRate" id="bRate" step="1" pattern="[0-9]*" min="0" max="60" class="validate" aria-label="..." tabindex="4" required>
-          <label for="bRate">Bearing Rate</label>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input type="number" name="tSPD" id="tSPD" step="1" pattern="[0-9]*" min="0" max="60" class="validate" aria-label="..." tabindex="5" required>
-          <label for="tSPD">Target Speed</label>
-
-        </div>
-              
-          <div class="input-field col s6">
-			<input type="number" name="tCRS" id="tCRS" step="1" pattern="[0-9]*" min="0" max="360" class="validate" aria-label="..." tabindex="6" required>
-            
-          <label for="tCRS">Target Course</label>
-
-        </div>
-      </div>
-    </form>
-  </div>	  
-				
-				
-            </div>
-            <!-- <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-            </div>-->
-          </div>
-        </div>
-		<!-- End Input Card -->
-		<!-- Eval Plot -->	
-			<div class="col s12 m12">
-				<div class="card black hilite-border"  name="holder" id="holder"> 
-					 <svg id="evalsvg"></svg>
-				</div>
-			</div>
-         <!-- End Eval Plot -->
-			  
-			  
-			  
-			  
-			  
-			
-			    
-
-			  
-			  
-			  
-		<!-- End Left Column -->	
-        </div>
-
-        <div class="col s12 m6 center">
-         <div class="card black hilite-border" id="mobo">
-			 <svg id="mobosvg"></svg>
-			 
-			 
-			 <!--Speed Component Read outs -->
-			 <!-- Own Ship -->
-			 <div class="top-left">
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><span class="blue-text">SoA</span> &nbsp;</td>
-        <td><span class="RO" id="soaRO">0 kts</span></td>
-      </tr>
-      <tr>
-        <td><span class="blue-text">SoI</span> &nbsp;</td>
-        <td><span class="RO" id="soiRO">0 kts</span></td>
-      </tr>
-    </tbody>
-  </table>
-         </div>
-			 <!-- Target -->
-			  <div class="top-right">
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><span class="RO" id="staRO">0 kts</span></td>
-        <td>&nbsp;<span class="red-text">StA</span></td>
-        </tr>
-      <tr>
-        <td><span class="RO" id="stiRO">0 kts</span></td>
-        <td>&nbsp;<span class="red-text">StI</span></td>
-        </tr>
-    </tbody>
-  </table>  
-            </div>
-			 
-		<!-- Relative -->
-			  <div class="bottom-left">
-  <table class="table">
-    <tbody>
-      <tr>
-		<td>&nbsp;<span class="green-text">SrA</span></td>  
-        <td><span class="RO" id="SRA">0 kts</span></td>
-        </tr>
-      <tr>
-		<td>&nbsp;<span class="green-text">SrI</span></td>  
-        <td><span class="RO" id="SRI">0 kts</span></td>
-        </tr>
-    </tbody>
-  </table>  
-            </div>
-			 
-			 <!-- LOS Geometry -->
-			  <div class="bottom-right">
-  <table class="table">
-    <tbody>
-      <tr>
-        <td><span class="RO right" id="closure">OPENING</span></td>
-        </tr>
-      <tr>
-        <td><span class="RO right readout" id="losGeo">OVERLEAD</span></td>
-        </tr>
-    </tbody>
-  </table>  
-            </div>
-			 
-			</div>
-			
-			<a class="square waves-effect waves-dark btn">
-			<i class="large material-icons icon" style="font-size: 60px;">settings</i>
-			</a>
-
-			<!-- <a class="square waves-effect waves-dark btn">
-				<i class="material-icons icon" style="font-size: 60px;">playlist_add</i><br />
-			</a> -->
-			
-			<a class="square waves-effect waves-dark btn">
-				<i class="material-icons icon" style="font-size: 60px;">list</i><br />
-			</a>
-			
-			<div class="square btn">
-
-			</div>
-			
-			<div class="square btn">
-
-			</div>
-			
-			<div class="square btn">
-			  <!-- Switch -->
-  <div class="switch">
-    <label>
-      <!-- <span class="left  white-text">&nbsp; 2:1</span><span class="center">|</span> <span class="right  white-text">5:1 &nbsp;</span> -->
-		<h5 class="white-text">2:1 | 5:1</h5>
-      <input type="checkbox">
-      <span class="lever"></span>
-     
-    </label>
-  </div>
-			</div>
-			
-			
-			<a class="square waves-effect waves-dark btn" onClick="toggleFullScreen();">
-				<i class="material-icons icon" style="font-size: 60px;">aspect_ratio</i>
-			</a>
-			
+    <div class="container-fluid vcenter">
+          <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="col-md-12 col-sm-6 col-xs-12">
+            <!-- Own ship course -->
+            <div class="col-md-6 col-sm-6">
+            <label>Own Ship Course</label><br>
+<input type="number" name='osCRS' id='osCRS' step="1" pattern="[0-9]*" class="spinner Bender-Light" min="0" max="360" tabindex="1" oninput="oscDraw(); watchDog(); mobo();" onBlur="oscDraw();watchDog(); mobo();" onInput="oscDraw(); watchDog(); mobo();" onBlur="oscDraw();watchDog(); mobo();" required /> 
               </div>
-		  
-		  
-		        <div class="row">
-        <div class="col s12 m3 ">
-          <div class="card black hilite-border">
-            <div class="card-content white-text">
-              <span class="card-title">SLB Range</span>
-              <h2><span id="slbRange" class="Bender">00000</span><span style="font-size: .5em"> Yards</span></h2>
-            </div>
-                      </div>
-			
-			<div class="card black hilite-border">
-            <div class="card-content white-text">
-             <table>
-				<tr>
-                <td>
-                  <span class="readout">00000</span></td>
-                <td>
-                  <span class="readout">00000</span></td>
-              </tr>
-              <tr>
-                <td><span class="sm">Minimum Range</span></td>
-                <td><span class="sm">Maximum Range</span></td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <span class="readout">0000</span></td>
-              </tr>
-              <tr>
-                <td colspan="2"><span class="sm">Estimated Range</span></td>
-              </tr>
-				</table>
-            </div>
+              <!-- Own Ship Speed -->
+              <div class="col-md-6 col-sm-6">
+              <label>Own Ship Speed</label><br>
+<input type="number" name='osSPD' id='osSPD' step=".1" pattern="[0-9]*" class="spinner Bender-Light" min="0" max="60"  tabindex="2" oninput="watchDog(); mobo(); stabTime();" onInput="watchDog(); mobo(); stabTime();" onBlur="watchDog(); mobo(); stabTime();" required />
+              </div>
+        <!-- Line of Sound -->
+        <div class="col-md-6 col-sm-6">
+        <label>Line of Sound</label><br>
+<input type="number" name='LOS' id='LOS' step="1" pattern="[0-9]*" class="spinner Bender-Light" required min="0" max="359.9" oninput="oscDraw(); tgtDraw(); watchDog(); mobo();"  onInput="oscDraw(); tgtDraw(); watchDog(); mobo();" onBlur="tgtDraw(); oscDraw();watchDog(); mobo();" tabindex="3" required />
+              </div>
+      <!-- Bearing Rate -->
+      <div class="col-md-6 col-sm-6">
+         <label>Bearing Rate</label><br>
+<input type="number" id="brgRATE" name='brgRATE' pattern="[0-9]*" class="spinner Bender-Light" step=".1" maxlength="4" min="0" max="90" oninput="watchDog(); mobo();" onInput="watchDog(); mobo();" onBlur="watchDog(); mobo();" tabindex="4" required />
+              </div>
+    <!-- Target Course -->
+    <div class="col-md-6 col-sm-6">
+          <label>Target's Speed</label><br>
+        <input type="number" pattern="[0-9]*" class="spinner Bender-Light" step=".1" name='tgtSPD' id='tgtSPD' min="0" max="60" oninput="tmrUpdater(); watchDog(); mobo();" onInput="tmrUpdater(); watchDog(); mobo();" onBlur="tmrUpdater(); watchDog(); mobo();" tabindex="5" required />
+              </div>
+<!-- Target Course -->
+<div class="col-md-6 col-sm-6">
+        <label>Target's Course</label><br>
+        <input type="number" pattern="[0-9]*" name='tgtCRS' step="1" id='tgtCRS' class="spinner Bender-Light" min="0" max="360" tabindex="6" oninput="tgtDraw(); watchDog(); mobo();" onInput="tgtDraw(); watchDog(); mobo();" onBlur="tgtDraw(); watchDog(); mobo();" required /> 
+                </div>
+                </div>
+<!-- LOS Evaluator Plot Graphics -->
+<div class="holder col-md-12 col-sm-6 col-xs-12" id="holder"></div>                        
+</div>
 
-          </div>
-			
-
-			<div class="card black hilite-border">
-            <div class="card-content white-text">
-             <table>
-				<tr>
-                <td>
-                  <span class="readout" id="relBRG">000&deg;</span></td>
-                <td>
-                  <span class="readout" id="repBRG">000&deg;</span></td>
-              </tr>
-              <tr>
-                <td><span class="sm">Relative Bearing</span></td>
-                <td><span class="sm">Reciprocal Bearing</span></td>
-              </tr>
-              <tr>
-                <td  colspan="2">
-                  <span  class="readout" id="relativePosition">Port Quarter</span></td>
-              </tr>
-              <tr>
-                <td colspan="2"><span class="sm">Relative Position</span></td>
-              </tr>
-				</table>
-            </div>
-
-          </div>
-			
-				<div class="card black hilite-border">
-            <div class="card-content white-text">
-                           <table>
-				<tr>
-                <td>
-                  <span class="readout" id="tmrPrint">0</span> <span class="sm">yds</span></td>
-                <td>
-                  <span class="readout" id="omrPrint">0</span> <span class="sm">yds/min</span></td>
-              </tr>
-              <tr>
-                <td><span class="sm">Three minute rule</span></td>
-                <td><span class="sm">One minute rule</span></td>
-              </tr>
-              <tr>
-                <td  colspan="2">
-                  <span  class="readout" id="stabPrint">0 min</span></td>
-              </tr>
-              <tr>
-                <td colspan="2"><span class="sm">Towed array stabilization time</span></td>
-              </tr>
-				</table>
-            </div>
-          </div>
-
-			
-        </div>
-      </div>
-
+<!-- Maneuvering Board -->              
+<div class="col-md-6 col-sm-12 col-xs-12 findr" id="findr">
+        <!-- placeholder for modal content -->
+     <!-- LEAD -->   
+    <div id="page1" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>LEAD</h1>
     </div>
-    <br><br>
+        <div class="row-fluid">
+                <div class="col-lg-4">
+                    <img class="logoicon" src="img/lead.png" alt="Lead Geometry"/>
+                </div>
+                <div class="col-lg-8">
+            <ul class="list-group">
+            <li class="list-group-item">Provides direction of contact motion (right or left) without ambiguity.</li>
+            <li class="list-group-item">Provides maximum range for assumed contact speed.</li>
+            <li class="list-group-item">Provides minimum target speed, which is own-ship speed across the los.</li>
+            <li class="list-group-item">Bearings always drift forward relative to own ship.</li>
+            </ul>
+                </div>
+            
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>
+</div>              
+</div>                          
+</div>
+    
+    <!-- OVERLEAD -->
+      <div id="page2" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>OVERLEAD</h1>
+    </div>
+        <div class="row-fluid">
+                <div class="col-lg-4">
+                    <img class="logoicon" src="img/overlead.png" alt="Overlead"/>
+                </div>
+                <div class="col-lg-8">
+            <ul class="list-group">
+            <li class="list-group-item">Provides absolute maximum range.</li>
+            <li class="list-group-item">Unable to determine direction of contact motion without additional information.</li>
+            <li class="list-group-item">Bearings always drift aft relative to own ship.</li>
+            <li class="list-group-item">Provides minimum range for assumed contact speed.</li>
+            </ul>
+                </div>
+            
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>
+</div>              
+</div>                          
+</div>
+    
+<!-- LAG -->
+      <div id="page3" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>LAG</h1>
+    </div>
+        <div class="row-fluid">
+                <div class="col-lg-4">
+                    <img class="logoicon" src="img/lag.png" alt="Lag Geometery"/>
+                </div>
+                <div class="col-lg-8">
+            <ul class="list-group">
+            <li class="list-group-item">Provides absolute minimum range.</li>
+            <li class="list-group-item">Unable to determine direction of contact motion without additional information.</li>
+            <li class="list-group-item">Generally, the los with the highest bearing rate.</li>
+            <li class="list-group-item">Bearings always drift aft relative to own ship.</li>
+            <li class="list-group-item">Provides maximum range for assumed contact speed.</li>            
+            </ul>
+            </div>
+            
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>
+</div>              
+</div>                          
+</div>
+
+<!-- ZBR -->
+      <div id="page4" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>ZERO BEARING RATE</h1>
+    </div>
+        <div class="row-fluid">
+                <div class="col-lg-4">
+                    <img class="logoicon" src="img/zbr.png" alt="ZBR"/>
+                </div>
+                <div class="col-lg-8">
+            <ul class="list-group">
+            <li class="list-group-item">Provides S<sub>T</sub>A and Minimum Target Speed.</li>
+          <li class="list-group-item">Provides direction of contact motion.</li>
+          <li class="list-group-item">Potential for Speiss Range</li>            </ul>
+            </div>
+            
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>
+</div>              
+</div>                          
+</div>
+    
+<!-- POINTING -->
+      <div id="page5" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>POINTING</h1>
+    </div>
+        <div class="row-fluid">
+                <div class="col-lg-4">
+                    <img class="logoicon" src="img/pointing.png" alt="Pointing Geometry"/>
+                </div>
+                <div class="col-lg-8">
+            <ul class="list-group">
+            <li class="list-group-item">Provides S<sub>T</sub>A and Minimum Target Speed.</li>
+          <li class="list-group-item">Provides direction of contact motion.</li>
+          <li class="list-group-item">Potential for Speiss Range</li>            </ul>
+            </div>
+            
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>
+</div>              
+</div>                          
+</div>
+    
+<!-- NTA -->
+      <div id="page6" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>NARROW TARGET ANGLE</h1>
+    </div>
+        <div class="row-fluid">
+                <div class="col-lg-4">
+                    <img class="logoicon" src="img/nta.png" alt="NTA"/>
+                </div>
+                <div class="col-lg-8">
+            <ul class="list-group">
+            <li class="list-group-item">Bearing lines cross near actual target range.</li>
+          <li class="list-group-item">Special techniques for geographic plot. &#40;Estimated Positions&#41;</li>
+          <li class="list-group-item">Potential for speiss range</li>            
+                    </ul>
+            </div>
+            
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>
+</div>              
+</div>                          
+</div>
+<!-- End of LOS Geometry Pages -->
+<!-- TMA Save Leg Dialog -->
+      <div id="page7" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+    <div class="btn-group btn-group-sm pull-right" role="group" aria-label="Large button group">
+ <button type="button" value="Add" class="btn btn-default btn-xs" id="plusbtn"><span class="glyphicon glyphicon-plus"> </span></button>    
+    <button type="button" value="Remove" class="btn btn-default btn-xs minusbtn"><span class="glyphicon glyphicon-minus"></span></button></th>
+    <button type="button" class="btn btn-default btn-xs" onClick="showpage(); return false"><span><a href="#"><i class="glyphicon glyphicon-remove"></i></a></span> </button>    
+        </div>
+
+        <h1>TMA HISTORY</h1>
+    </div>
+        <div class="row-fluid">
+ <div class="table">
+            <table class="table test">
+  <thead>
+    <tr>
+        <th colspan="1"><span class="glyphicon glyphicon-minus minusbtn"></span></th>
+        <th colspan="1">C<sub>O</sub></th>
+        <th colspan="1">S<sub>O</sub></th>
+        <th colspan="1">LOS</th>
+        <th colspan="1">B. Rate</th>
+        <th colspan="1">C<sub>T</sub></th>
+        <th colspan="1">S<sub>T</sub></th>
+        <th colspan="1">Geometry</th>
+        <th colspan="1">Range</th>
+        <!-- <th colspan="1">Time</th> -->
+    </tr>
+  </thead>  
+</table>
+</div>
+        </div>  
+    <div class="page-footer clear">
+        <p><i></i></p>
+    </div>              
+</div>                          
+</div>
+<!-- OPTIONS -->
+      <div id="page8" class="virtual-page">
+    <div class="page-content">
+    <div class="virtual-header">
+          <span class="pull-right clearfix"><a href="#" onClick="showpage(); return false"><i class="glyphicon lg glyphicon-remove"></i></a></span>        
+        <h1>OPTIONS</h1>
+    </div>
+        <div class="row-fluid">
+            <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body form-horizontal payment-form">
+                    <div class="form-group">
+                        <label for="TDZ" class="col-sm-4 control-label">Torpedo Danger Zone</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="TDZ" name="TDZ" value="20000">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="rod" class="col-sm-4 control-label">Range of the Day</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control" id="rod" name="rod" value="20000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cabscope" class="col-sm-4 control-label">Towed Array Cable Scope</label>
+                        <div class="col-sm-8">
+                            <input type="number" class="form-control cabscope"  class="form-control" id="cabscope" name="cabscope" value="5000">
+                        </div>
+                    </div>                     
+                </div>
+                </div>
+                </div>
+        
+        </div>              
+</div>                          
+</div>
+
+              
+<!-- Function button group -->          
+    <div class="btn-group-vertical btn-group-lg leftoff" role="group" aria-label="Large button group">
+      <button type="button" class="btn btn-default text-center" onClick="showpage(7); return false"><span class="glyphicon glyphicon-history"> </span><br><span class="sm">TMA Legs</span></button>
+      <button type="button" class="btn btn-default" onClick="showpage(8); return false"><span class="glyphicon glyphicon-cog"></span><br><span class="sm">Options</span></button>
+    </div>
+              
+<!--Place holder for alerts               
+              <div class="alert alert-danger fade in">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+        <span class="Bender lg">&#91; WARNING! &#93;</span> High bearing rate contact.
+    </div>
+              -->
+              
+              
+     <div class="btn-group-vertical btn-group-lg rightoff" role="group" aria-label="Large button group">    
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-briefcase"></span><br><span class="sm">Tools</span></button>
+      <button type="button" class="btn btn-default" id="toggle"><span class="glyphicon glyphicon-fullscreen"></span><br><span class="sm">Full Screen</span></button>
+    </div>
 	</div>
-  
+<!-- Read outs -->          
+        <div class="col-md-3 col-sm-12">
+        <div class="row col-md-12 col-sm-6">
+            <h6 class="panel-title"><a class="pull-left badge text-info"><span>i</span></a>&nbsp;LOS Geometry</h6>
+	    <h1>
+        <a id="losGeo" class="Bender">OVERLEAD</a>
+        </h1>
+        </div>
+          
+          <div class="row col-md-12 col-sm-6">
+          <h6 class="panel-title">SLB Range</h6>
+              <h1><span id="slbRange" class="Bender">00000</span><span class="Bender"> yds</span></h1>
+          </div>
+            <div class="row-spacer col-md-12 col-sm-12">&nbsp;</div>
+            
+          <div class="row-spacer col-md-12 col-sm-12">
+    <h6 class="panel-title">Calculated Ranges for this LOS<span class="sm"> (in yards)</span></h6>
+     
+<ul class="list-group list-inline">
+  <li class="list-group-item text-center col-md-6 col-sm-6"><span id="losOc" class="Bender-Light md">&nbsp;</span><br><span class="sm">Closure</span></li>
+    <li class="list-group-item text-center col-md-6 col-sm-6"><span id="minRNG" class="Bender-Light md">&nbsp;</span><br><span class="sm">Min Range</span></li>
+    <li class="list-group-item text-center col-md-6 col-sm-6"><span id="maxRNG" class="Bender-Light md">&nbsp;</span><br><span class="sm">Max Range</span></li>
+  <li class="list-group-item text-center col-md-6 col-sm-6"><span id="estRNG" class="Bender-Light md">&nbsp;</span><br><span class="sm">Estimated</span></li>
+</ul>
+            </div>
+            <div class="row-spacer col-md-12 col-sm-12">
+       <h6 class="panel-title">Relative Bearing &amp; Position</h6>
+<ul class="list-group list-inline">
+    <li class="list-group-item text-center col-lg-6 col-sm-6"><span id="recBRG" class="Bender-Light md">&nbsp;</span><br><span class="sm">Reciprocal</span></li>
+    <li class="list-group-item text-center col-lg-6 col-sm-6"><span id="repBRG" class="Bender-Light md">&nbsp;</span><br><span class="sm">Relative</span></li>
+    <li class="list-group-item text-center col-lg-12 col-sm-12"><span id="relativePosition" class="Bender-Light md">&nbsp;</span><br><span class="sm">Position</span></li>
+</ul>
+            </div>
+            <div class="row-spacer col-md-12 col-sm-12">
+    <h6 class="panel-title">Three Minute Rule</h6>
+    
+<ul class="list-group list-inline">
+  <li class="list-group-item text-center col-md-6 col-sm-6"><span id="tmrPrint" class="Bender-Light md">&nbsp;</span><br><span class="sm">yards every 3 minutes</span></li>
+    <li class="list-group-item text-center col-md-6 col-sm-6"><span id="omrPrint" class="Bender-Light md">&nbsp;</span><br><span class="sm">yards every minute</span></li>
+</ul>
+            </div>
+            <div class="row-spacer col-sm-12">
+<h6 class="panel-title">Towed Array Stabilization Time</h6>
+    
+<ul class="list-group">
+    <li class="list-group-item"><span id="stabPrint" class="Bender-Light stabPrint">&nbsp;</span>&nbsp;<span class="sm">minutes</span> </li>
+</ul>
+            </div>
+            </div>
+      
+</div>
+</div>
+<!-- /.container -->
+</div>
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/snap.svg-min.js"></script>	
-  <script src="js/init.js"></script>
-	<script src="js/slbr.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>  
+    <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/raphael-min.js"></script> 
+    <script src="js/utils.js"></script>
+    <script src="js/screenfull.js"></script>
+    <!-- <script src="js/utils.js"></script> -->
+      <!-- Javascripts for SVG Circle Controls --> 
+ 
+<script type="text/javascript">
+    
+    function showpage(id) {
+     clearpages()
+     var page = $('#page' + id);
+     page.show();
+    }
 
+    function clearpages() {
+     for (var i = 1; i <= 9; i++) {
+      var pages = $('#page' + i);
+      pages.hide();
+     }
+    }
+
+    // Set Up Moboard Graphics
+
+    var wide = $("#findr").width();
+    var high = $("#findr").height();
+
+    var r = Raphael("findr", wide, wide);
+    r.dragging = false;
+    r.highlight = false;
+    
+    var center = wide / 2;
+    var center2 = wide / 2;
+    var radius = wide * 0.45;
+    var radius2 = wide * 0.436;
+    var radius3 = wide * 0.43;
+    var radius4 = wide * 0.42;
+    var radius5 = wide * 0.46;
+
+    var pathParams = {
+     stroke: "#212426",
+     "stroke-width": 1
+    };
+
+    var losParams = {
+     stroke: "#ecf0f1",
+     "stroke-width": 2,
+     "arrow-end": 'block-wide-long'
+    };
+
+    var minorParams = {
+     stroke: "#7f8c8d",
+     "stroke-width": 1.5
+    };
+
+    var narrowParams = {
+     stroke: "#7f8c8d",
+     "stroke-width": 1,
+     opacity: 0.5   
+    };
+
+    var textParams = {
+     fill: "#656f70",
+     "font-size": 10
+    };
+
+    var textParams1 = {
+     fill: "#6D8C8B",
+     "font-size": 8
+    };
+
+    var dotParams = {
+     stroke: "#7f8c8d",
+     "stroke-width": 1,
+     "stroke-dasharray": ". ",
+     "font-size": 10
+    };
+
+    var dot2Params = {
+     stroke: "#7f8c8d",
+     "stroke-width": 1.5,
+     "stroke-dasharray": ". ",
+     "font-size": 10
+    };
+
+    for (var i = 0; i < 360; i++) {
+     var theta = i * (Math.PI / 180);
+     var cos = Math.cos(theta);
+     var sin = Math.sin(theta);
+
+     sector = r.path([
+      ["M", center + radius * cos, center2 + radius * sin],
+      ["L", center + radius2 * cos, center2 + radius2 * sin]
+     ]).attr(narrowParams);
+
+    }
+
+    for (var i = 0; i < 36; i++) {
+     var theta = i * 10 * (Math.PI / 180);
+     var cos = Math.cos(theta);
+     var sin = Math.sin(theta);
+
+     tick = r.path([
+      ["M", center + radius * cos, center2 + radius * sin],
+      ["L", center + radius3 * cos, center2 + radius3 * sin]
+     ]).attr(minorParams);
+
+    }
+
+    for (var i = 0; i < 36; i++) {
+     var theta = i * 10 * (Math.PI / 180);
+     var cos = Math.cos(theta);
+     var sin = Math.sin(theta);
+     dotick = r.path([
+      ["M", center, center2],
+      ["L", center + radius * cos, center2 + radius * sin]
+     ]).attr(dotParams);
+    }
+
+    for (var i = 0; i < 10; i++) {
+     var rad = i * (radius / 10);
+     circ = r.circle(center, center2, rad).attr(dotParams);
+    }
+
+    sector.toBack();
+
+    // Labels
+    for (var i = 0; i < 36; i++) {
+     var radius = wide * 0.465;
+     var theta = i * 10 * (Math.PI / 180);
+     var cos = Math.cos(theta);
+     var sin = Math.sin(theta);
+
+     label = r.text(center + (radius * 1.02 * sin), center2 + (radius * 1.02 * (-1 * cos)), [
+      [Math.round(theta * (180 / Math.PI), 0)]
+     ]).attr(textParams);
+    }
+
+    for (var i = 0; i < 36; i++) {
+     var radius = wide * 0.415;
+     var theta = i * 10 * (Math.PI / 180);
+     var cos = Math.cos(theta);
+     var sin = -1 * Math.sin(theta);
+
+     label1 = r.text(center + (radius * sin), center2 + (radius * cos), [
+      [Math.round(theta * (180 / Math.PI), 0)]
+     ]).attr(textParams1);
+    }
+
+    // Target Speed Bubble
+    tdz = r.circle(center, center, 0).attr({
+     fill: "#e74c3c",
+     stroke: "#e74c3c",
+     "stroke-width": 1,
+     opacity: 0.5
+    });
+
+    // Maximum Range Bubble
+    marb = r.circle(center, center, 0).attr({
+     stroke: "#f1c40f",
+     "stroke-width": 1,
+     "stroke-dasharray": "- "
+    });
+
+    // Min Range Bubble
+    mirb = r.circle(center, center, 0).attr({
+     stroke: "#c0392b",
+     "stroke-width": 1
+    });
+
+    // Est Range Bubble
+    erb = r.circle(center, center, 0).attr({
+     stroke: "#d1daaa",
+     "stroke-width": 1,
+     "stroke-dasharray": "- "
+    });
+
+    //Center Circle
+    r.circle(center, center2, radius / 10).attr({
+     fill: "#0D1217",
+     "stroke-width": 0
+    });
+
+    r.circle(center, center2, radius / 10).attr({
+     stroke: "#212426",
+     "stroke-width": 1
+    });
+
+    //Course Vector
+
+    var moVector = r.path([
+     ["M", center, center2],
+     ["L", center, center2]
+    ]).attr({
+     stroke: "#2980b9",
+     "stroke-width": 1.5,
+     "arrow-end": 'block-wide-long',
+    });
+    var moVectorArray = moVector.attr("path");
+
+    moHandle = r.circle(center, center, 0).attr({
+     fill: "#212426",
+     stroke: "#0D1217",
+     "stroke-width": 0,
+     cursor: "move",
+    });
+
+    //Target Course Vector
+
+    var toVector = r.path([
+     ["M", center, center],
+     ["L", center, center]
+    ]).attr({
+     stroke: "#e74c3c",
+     "stroke-width": 1.5,
+     "arrow-end": 'block-wide-long',
+    });
+    var toVectorArray = toVector.attr("path");
+
+    toHandle = r.circle(center, center, 0).attr({
+     fill: "#e74c3c",
+     stroke: "#e74c3c",
+     "stroke-width": 0,
+     opacity: 0.25,
+     cursor: "move",
+    });
+
+    var lVector = r.path([
+     ["M", center, center],
+     ["L", center, center]
+    ]).attr(losParams);
+
+    // intersection detectors
+    var pdVector = r.path([
+     ["M", center, center],
+     ["L", center, center]
+    ]).attr({
+     stroke: "#7f8c8d",
+     "stroke-width": 1
+    });
+    var ppVector = r.path([
+     ["M", center, center],
+     ["L", center, center]
+    ]).attr({
+        //stroke: "#7f8c8d"
+     stroke: "green",
+     "stroke-width": 3
+    });
+
+    // Parallel and Perpendicular Drawn Lines
+
+    var pPath2 = r.path([
+     ["M", center, center],
+     ["L", center, center]
+    ]).attr({
+     stroke: "#212426",
+     "stroke-width": 0
+    });
+
+    r.circle(center, center2, 6).attr({
+     fill: "#212426",
+     stroke: "#535459",
+     opacity: 1,
+     "stroke-width": 1
+    });
+
+    var staRO = r.text(wide * 0.11, wide * 0.1, "0.0 kts").attr({
+     fill: "#ecf0f1",
+     "font-size": 14,
+     "font-family": "Bender-Light"
+    });
+
+    r.text(wide * 0.05, wide * 0.1, "StA ").attr({
+     fill: "#e74c3c",
+     "font-size": 14
+    });
+
+    staRO.node.id = "staRO";
+    r.text(wide * 0.05, wide * 0.05, "StI ").attr({
+     fill: "#e74c3c",
+     "font-size": 14
+    });
+
+    var stiRO = r.text(wide * 0.11, wide * 0.05, "0.0 kts").attr({
+     fill: "#ecf0f1",
+     "font-size": 14,
+     "font-family": "Bender-Light"
+    });
+
+    stiRO.node.id = "stiRO";
+    var soaRO = r.text(wide * 0.89, wide * 0.1, "0.0 kts").attr({
+     fill: "#ecf0f1",
+     "font-size": 14,
+     "font-family": "Bender-Light"
+    });
+
+    r.text(wide * 0.95, wide * 0.1, "SoA ").attr({
+     fill: "#2980b9",
+     "font-size": 14
+    });
+
+    soaRO.node.id = "soaRO";
+
+    var soiRO = r.text(wide * 0.89, wide * 0.05, "0.0 kts").attr({
+     fill: "#ecf0f1",
+     "font-size": 14,
+     "font-family": "Bender-Light"
+    });
+
+    r.text(wide * 0.95, wide * 0.05, "SoI ").attr({
+     fill: "#2980b9",
+     "font-size": 14
+    });
+    soiRO.node.id = "soiRO";
+
+    var mc = r.path([
+     ["M", center, center * 0.085],
+     ["A", radius * 1.1, radius * 1.1, 0, 1, 1, center - 0.01, center * .085],
+     ["z"]
+    ]).attr({
+     stroke: "#7f8c8d",
+     "stroke-width": 1
+    });
+
+    /* LOS MoBo Labels
+    
+    var angleplus = 360 * value / total,
+    var popangle = angle + (angleplus / 2),
+    var color = Raphael.hsb(start, .75, 1),
+    var ms = 500,
+    var delta = 30,
+    var bcolor = Raphael.hsb(start, 1, 1),
+    // var p = sector(cx, cy, r, angle, angle + angleplus, {fill: "90-" + bcolor + "-" + color, stroke: stroke, "stroke-width": 3}),
+    var txt = r.text(cx + (r + delta + 55) * Math.cos(-popangle * rad), cy + (r + delta + 25) * Math.sin(-popangle * rad), labels[j]).attr({fill: bcolor, stroke: "none", opacity: 0, "font-size": 20});
+    
+    */
+
+
+
+
+    $(function() {
+     $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+     if (!screenfull.enabled) {
+      return false;
+     }
+
+     $('#request').click(function() {
+      screenfull.request($('#container')[0]);
+      // does not require jQuery, can be used like this too:
+      // screenfull.request(document.getElementById('container'));
+     });
+
+     $('#exit').click(function() {
+      screenfull.exit();
+     });
+
+     $('#toggle').click(function() {
+      screenfull.toggle($('#container')[0]);
+     });
+
+     $('#request2').click(function() {
+      screenfull.request();
+     });
+
+     $('#demo-img').click(function() {
+      screenfull.toggle(this);
+     });
+
+     function fullscreenchange() {
+      var elem = screenfull.element;
+
+      $('#status').text('Is fullscreen: ' + screenfull.isFullscreen);
+
+      if (elem) {
+       $('#element').text('Element: ' + elem.localName + (elem.id ? '#' + elem.id : ''));
+      }
+
+      if (!screenfull.isFullscreen) {
+       $('#external-iframe').remove();
+       document.body.style.overflow = 'auto';
+      }
+     }
+
+     document.addEventListener(screenfull.raw.fullscreenchange, fullscreenchange);
+
+     // set the initial values
+     fullscreenchange();
+    });
+
+    $('#plusbtn').click(function() {
+
+     var course = $('#tgtCRS').value;
+
+     $(".test").append('<tr>' + '<td><input type="checkbox" name="delete"></td>' + '<td>' + $('#osCRS').val() + '&deg;' + '</td><td>' + $('#osSPD').val() + ' kts' + '</td> <td>' + $('#LOS').val() + '&deg;' + '</td><td>' + $('#brgRATE').val() + '&deg;/min' + '</td> <td>' + $('#tgtCRS').val() + '&deg;' + '</td><td>' + $('#tgtSPD').val() + ' kts' + '</td><td>' + $('#losGeo').text() + ' </td><td>' + $('#slbRange').text() + '</td></tr>');
+    });
+    $('.minusbtn').click(function() {
+     $('.test tbody tr').has('input[name="delete"]:checked').remove()
+    });      </script>
   </body>
 </html>

@@ -907,8 +907,8 @@
 	function stabTime() {
 		//var cableScope = parseInt((document.getElementById('cabscope').value), 10);
 		var cableScope = 1500;
-		var sTi = ((cableScope * 2) / (osSPD() * 100)).toFixed(1);
-		document.getElementById("stabPrint").innerHTML = sTi;
+		var sTime = ((cableScope * 2) / (osSPD() * 100)).toFixed(1);
+		document.getElementById("stabPrint").innerHTML = sTime;
 	}
 
 
@@ -1244,8 +1244,6 @@
 		var nTY = mcy + ((-1 * Math.cos(tc)) * tRads);
 
 
-
-
 		//Rotate Own Ship Vector and Baffles to proper orientation
 
 		var rotateTo = (startTheta - newTheta) - 90;
@@ -1380,13 +1378,10 @@
 
 	}
 
-
 	function moDraw() {
 		losDraw();
 		paraDraw();
 	}
-
-
 
 	function setCrs() {
 		var losDeg = lOS();

@@ -1919,7 +1919,6 @@
 	 } else {
 	  tA();
 	  mobo();
-	  slbrAlert();
 	  tdzCheck();
 	 }
 	}

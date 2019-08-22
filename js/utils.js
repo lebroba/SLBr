@@ -218,7 +218,7 @@
 	 var spdO = parseFloat(document.getElementById("osSPD").value, 10);
 	 var sTa = Math.abs((spdT * taSin));
 	 var sOa = Math.abs((spdO * laSin));
-	 var sTi = Math.abs(spdT * taCos);
+	 var sTi = (spdT * taCos);
 	 var sOi = (spdO * aCos);
 
 	 var x = taDeg;

@@ -1559,6 +1559,7 @@
 		tgtMath();
 		tgtDraw();
 		slbRange();
+		console.log(tCRS(), lOS(), tgtAngle());
 	}
 
 	function tsHandler() {
@@ -1589,4 +1590,4 @@
 	document.getElementById("tCRS").addEventListener("input", tcHandler);
 	document.getElementById("tSPD").addEventListener("input", tsHandler);
 	document.getElementById("bRate").addEventListener("input", brHandler);
-	console.log(tCRS(), lOS(), tgtAngle());
+	

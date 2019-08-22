@@ -1919,6 +1919,5 @@
 	 } else {
 	  tA();
 	  mobo();
-	  tdzCheck();
 	 }
 	}

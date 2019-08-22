@@ -921,7 +921,7 @@
 	}
 
 	function tgtAngle() {
-		var taTheta = tCRS() - lOS();
+		var taTheta = lOS() - tCRS();
 		return (taTheta);
 	}
 

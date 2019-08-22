@@ -1905,24 +1905,6 @@
 	 }, 100);
 }
 
-	
-
-
-	$(function slbrAlert() {
-	 // Score Color
-	 var rng = parseInt($('#slbRange').text().trim());
-	 var color = '';
-	 if (!isNaN(rng)) {
-	  if (rng <= 20000 && rng >= 1) {
-	   color = '#e74c3c';
-	  }
-	  if (rng >= 20001) {
-	   color = '#adbfc0';
-	  }
-	  $('#slbRange').css('color', color);
-	 }
-	});
-
 	function watchDog() {
 	 var crsTRad = parseFloat(document.getElementById('tgtCRS').value) * (Math.PI / 180);
 	 var crsORad = parseFloat(document.getElementById('osCRS').value) * (Math.PI / 180);
